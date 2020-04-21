@@ -7,9 +7,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- load the propertiews file: sport.properties -->
-	<context:property-placeholder location="classpath:sport.properties" />
-	
     <!-- Define your beans here -->
     
     <!-- add logging messages -->
@@ -20,17 +17,18 @@
     
 	<!-- define the dependency -->
     <bean id="myFortuneService"
-    	class="com.luv2code.springdemo.RandomFortuneService">
+    	class="com.luv2code.springdemo.HappyFortuneService">
     </bean>
     
-    <bean id="mySwimmingCoach"
-    	class="com.luv2code.springdemo.SwimmingCoach"
-    	scope="prototype">
+    <bean id="myCoach"
+    	class="com.luv2code.springdemo.TrackCoach"
+    	init-method="doMyStartupStuff"
+    	destroy-method="doMyCleanupStuffYoYo">
     	
     	<!-- set up the constructor injection -->
     	<constructor-arg ref="myFortuneService" />
     </bean>
-
+    
 </beans>
 
 

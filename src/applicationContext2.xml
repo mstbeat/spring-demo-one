@@ -24,7 +24,8 @@
     </bean>
     
     <bean id="mySwimmingCoach"
-    	class="com.luv2code.springdemo.SwimmingCoach">
+    	class="com.luv2code.springdemo.SwimmingCoach"
+    	scope="prototype">
     	
     	<!-- set up the constructor injection -->
     	<constructor-arg ref="myFortuneService" />
